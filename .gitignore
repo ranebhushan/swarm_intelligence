@@ -1,0 +1,16 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Custom Ignore
+swarm_env/*
+the_schelling_model/P=0.6 t=3/*
+the_schelling_model/P=0.6 t=4/*
+the_schelling_model/P=0.8 t=3/*
+the_schelling_model/P=0.8 t=4/*
+the_schelling_model/P=0.8 t=3,5/*
+
+# Ignore Filename Extensions
+
+# VSCode
+.vscode/*
+.vs/*
+*.code-workspace
