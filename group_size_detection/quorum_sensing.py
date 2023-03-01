@@ -11,8 +11,8 @@ import shutil
 import random
 
 # Initialize grid dimensions
-width = 20
-height = 20
+width = 10
+height = 10
 
 # Signal Probability
 probability = 0.01
@@ -47,22 +47,24 @@ refractory_timer = np.zeros((height,width))
 agent_done_steps = np.zeros((height,width))
 
 # Create temporary directory to save images to create a GIF
-folder_name = "temp_data"
-if os.path.exists(folder_name):
-    shutil.rmtree(folder_name)
-    os.mkdir(folder_name)
-else:
-    os.mkdir(folder_name)
+# folder_name = "temp_data"
+# if os.path.exists(folder_name):
+#     shutil.rmtree(folder_name)
+#     os.mkdir(folder_name)
+# else:
+#     os.mkdir(folder_name)
 
 # Variables to create a GIF 
-image_count = 1
-filenames = []
+# image_count = 1
+# filenames = []
 
 # Initialize flag to run simulation
 simulation_complete_flag = False
 
 # Counter to note algorithm iterations 
 bean_counter = 0
+
+neighbor = 0
 
 print(f'W = {width}, H = {height}, P = {probability}, R = {R}, Neighbors = {num_neighbors}')
 
