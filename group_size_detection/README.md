@@ -6,7 +6,7 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 
 ## Description
 
-This repository contains an implementation of a simple algorithm for calculating a _very rough estimate_ of the size of a group of agents in a completely decentralized manner. This algorithm is called **quorum sensing** and it is used by certain bacteria to know when to launch an attack on the body of the host.
+This repository contains an implementation of a simple algorithm for calculating a _very rough estimate_ of the size of a group of agents in a completely decentralized manner. This algorithm is called **[quorum sensing](https://en.wikipedia.org/wiki/Quorum_sensing)** and it is used by certain bacteria to know when to launch an attack on the body of the host.
 
 The algorithm works as follows:
 
