@@ -21,7 +21,7 @@ c_grid = np.random.randint(low=0, high=T, size=(agent_state.shape[0], agent_stat
 # print("C Grid =", c_grid)
 
 # Initialize the value of k
-k = 0.7
+k = 0.5
 
 # Direction Vectors to explorte neighbours of any agent
 dR = [-1, +1, 0, 0]
@@ -42,7 +42,7 @@ filenames = []
 # Initialize a counter to repeat 'n' number of times
 bean_counter = 0
 
-while (bean_counter <= 1000):
+while (bean_counter <= 1500):
     for row in range(0,agent_state.shape[0]):
         for column in range(0,agent_state.shape[1]):
             
@@ -94,7 +94,7 @@ for n in filenames:
     images.append(frame)
 
 # Create GIF
-images[0].save(f'kk={k}.gif',
+images[0].save(f'k={k}.gif',
             save_all=True,
             append_images=images[1:],
             duration=10,
