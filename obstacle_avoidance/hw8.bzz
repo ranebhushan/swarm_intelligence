@@ -66,7 +66,7 @@ function coupled_oscillators_setup(){
 	k = 0.5
 
 	# Initialize the neighbor listen function 
-	neighbors.listen("key", function(vid, neighbor_state, rid) {
+	neighbors.listen("neighbor_state", function(vid, neighbor_state, rid) {
 
 		# Check if neighbor flashed
 		if (neighbor_state > 0){
