@@ -1,0 +1,67 @@
+#
+# In the ARGoS window, you can move the camera with the following commands:
+#
+# - Translation: W A S D Q E keys, right-click + drag
+# - Rotation: left-click + drag
+#
+# Selection: shift-click on the robot
+# Remove selection: shift-click elsewhere
+#
+# Bug: selection is finnicky in the top-down view (Camera 1).
+# Solution: switch to another camera and it'll work.
+#
+
+#
+# Compiling and running the code
+#
+# - In the ARGoS window: Pause the simulation (if it's not paused already)
+# - In the editor: do what you need, save, press the "Execute" button
+# - In the ARGoS window: Press the "Play", "Step", or "Fast Forward" buttons
+#
+
+#
+# This editor sucks.
+#
+# I know.
+#
+# But when it's open, it detects whether the open files have been modified elsewhere.
+# So open this editor and then open the file you wanna edit in your favorite editor.
+# When you save in your editor, the changes will be reflected here. Press Execute to compile and run.
+# If you want syntax highlighting, JavaScript is pretty similar to Buzz.
+#
+
+# include "include/vec2.bzz"
+
+function obstacle_avoidance(){
+	if (proximity[0].value > 0){
+		set_wheels(10.0,-10.0)
+	}
+	else if ( (proximity[1].value > 0) or (proximity[2].value > 0) or (proximity[3].value > 0) ){
+		set_wheels(10.0,-10.0)
+	}
+	else if ( (proximity[5].value > 0) or (proximity[6].value > 0) or (proximity[7].value > 0) ){
+		set_wheels(-10.0,10.0)
+	}
+	else {
+		set_wheels(10.0,10.0)
+	}
+}
+
+# This function is executed once at init time
+function init() {
+	# log("INFO: Hello User")
+}
+
+# This function is executed at each time step
+# The main loop is controller by ARGoS
+function step() {
+	obstacle_avoidance()
+}
+
+# This function is executed when you press the reset button
+function reset() {
+}
+
+# This function is executed once when you close the simulator
+function destroy() {
+}
