@@ -15,3 +15,9 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 
 ### [Homework 6]()
 - [Coupled Oscillators]()
+
+### [Homework 7]()
+- [Group Size Detection]()
+
+### [Homework 8]()
+- [Obstacle Avoidance]()
