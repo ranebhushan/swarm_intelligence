@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************************* -->
+  <!-- * General configuration * -->
+  <!-- ************************* -->
+  <framework>
+    <!--
+        System configuration:
+        - threads: the number of slave threads to parallelize the
+          computation. For less than 100 robots thread management is not
+          beneficial, so here we set it to 0. When set to 0, it means that
+          the computation is not parallelized: the main thread does
+          everything.
+    -->
+    <system threads="0" />
+    <!--
+        Experiment configuration:
+        - length: total experiment time in seconds (0 means the experiment
+          has no time limit)
+        - ticks_per_second: number of ticks per second (int value)
+        - random_seed: seed of the main random number generator. If unset
+          or set to zero, this value is taken from the clock and a warning
+          message is displayed.
+    -->
+    <experiment length="0"
+                ticks_per_second="10"
+                random_seed="0" />
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+
+    <!-- 
+         Here you list the controllers to be used in the experiment.
+         
+         The attributes are:
+         - id: a unique a identifier for this controller, to be used in the
+           subsequent <arena> section to say which robots use which
+           controller
+         - library: the path to the compiled library containing you
+           controller.
+    -->
+    <buzz_controller_kheperaiv id="bck">
+      <!--
+          The <actuators> section contains a list of the actuators used by
+          this controller.
+          If you forget a to mention an actuator here and then request it
+          in the controller, an error occurs.
+          For a list of the possible actuators, type at the command prompt:
+          $ argos3 -q actuators
+
+          Multiple implementations of an actuator are possible. To
+          identify which one you want to use, pass it in the
+          'implementation' attribute below. When you type the 'argos3 -q'
+          command, the implementation is in the square brackets following
+          the name of the device:
+
+          $ argos3 -q actuators
+          ...
+          differential_steering [default]
+          ...
+      -->
+      <actuators>
+        <differential_steering implementation="default" />
+        <range_and_bearing     implementation="default" />
+        <leds                  implementation="default" medium="leds" />
+      </actuators>
+      <!--
+          The <sensors> section contains a list of the sensors used by
+          this controller.
+          If you forget a to mention a sensor here and then request it in
+          the controller, an error occurs.
+          For a list of the possible sensors, type at the command prompt:
+          $ argos3 -q sensors
+      -->
+      <sensors>
+        <range_and_bearing implementation="medium" medium="rab" show_rays="true" />
+      </sensors>
+      <!--
+          The <params> section is passed to the Buzz C++ controller.
+      -->
+      <params />
+    </buzz_controller_kheperaiv>
+
+  </controllers>
+
+  <!-- ****************** -->
+  <!-- * Loop functions * -->
+  <!-- ****************** -->
+  <!--
+      Experiment configuration:
+      - outfile: the output file name
+      - delta: stimulus increase per unit time (slide 16)
+      - alpha: efficiency factor (slide 16)
+      - tasks: parameter 'm' in the slides
+               if you change 'tasks', you must change it also in the script!
+               (not required for this homework, but just in case you want to play)
+  -->
+  <loop_functions library="build/libthreshold_model"
+                  label="threshold_model"
+                  outfile="data.dat"
+                  delta="10"
+                  alpha="20"
+                  tasks="2">
+
+  </loop_functions>  
+
+  <!-- *********************** -->
+  <!-- * Arena configuration * -->
+  <!-- *********************** -->
+  <!--
+      Here you place all the objects in the arena.
+      All linear measures are expressed in meters.
+      Angles are expressed in degrees.
+      The 'size' attribute contains the size of the arena around the
+      origin.
+      To get help about which entities are available, type at the command
+      prompt:
+      
+      $ argos3 -q entities
+
+      and to get help about a specific entity (for instance, the box)
+
+      $ argos3 -q box
+  -->
+  <arena size="5, 5, 1" center="0,0,0.5">
+
+    <box id="wall_north" size="4,0.1,0.5" movable="false">
+      <body position="0,2,0" orientation="0,0,0" />
+    </box>
+    <box id="wall_south" size="4,0.1,0.5" movable="false">
+      <body position="0,-2,0" orientation="0,0,0" />
+    </box>
+    <box id="wall_east" size="0.1,4,0.5" movable="false">
+      <body position="2,0,0" orientation="0,0,0" />
+    </box>
+    <box id="wall_west" size="0.1,4,0.5" movable="false">
+      <body position="-2,0,0" orientation="0,0,0" />
+    </box>
+
+    <!--
+        You can distribute entities randomly. Here, we distribute
+        20 Khepera IV robots.
+    -->
+    <distribute>
+      <position method="uniform" min="-2,-2,0" max="2,2,0" />
+      <orientation method="uniform" min="0,0,0" max="360,0,0" />
+      <entity quantity="20" max_trials="100">
+        <kheperaiv id="kiv" rab_data_size="100">
+          <controller config="bck" />
+        </kheperaiv>
+      </entity>
+    </distribute>
+
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <!--
+      In ARGoS, multiple physics engines can run at the same time.
+      In this section you say which engines to use for the experiment.
+      To know which engines are available, type at the command prompt:
+      
+      $ argos3 -q physics_engines
+  -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <!--
+      Here you specify the media in use. Media allow robots to communicate.
+      In this experiment, robots do not communicate, so no media are
+      specified.
+      To know which media are available, type at the command prompt:
+
+      $ argos3 -q media
+  -->
+  <media>
+    <range_and_bearing id="rab" />
+    <led id="leds" />
+  </media>
+
+  <!-- ****************** -->
+  <!-- * Visualization * -->
+  <!-- ****************** -->
+  <!--
+      Here you specify which visualization to use.
+      You can also not specify a visualization at all, in which case ARGoS
+      will run without showing anything.
+      Having no visualization is useful when you run ARGoS in a batch of
+      experiments to collect statistics.
+      To know which visualizations are available, type at the command
+      prompt:
+
+      $ argos3 -q visualizations
+  -->
+  <visualization>
+    <qt-opengl>
+      <user_functions label="buzz_qt" />
+      <camera>
+        <placements>
+          <placement index="0"
+                     position="0,0,11"
+                     look_at="0,0,0"
+                     up="0,1,0"
+                     lens_focal_length="65" />
+          <placement index="1"
+                     position="4.42741,3.38215,2.51354"
+                     look_at="3.7126,2.81745,2.10105"
+                     up="-0.323676,-0.255704,0.910961"
+                     lens_focal_length="53.8" />
+          <placement index="2"
+                     position="4.78486,4.0464,2.7378"
+                     look_at="4.08294,3.44453,2.35694"
+                     up="-0.289125,-0.247915,0.924632"
+                     lens_focal_length="53.75" />
+          <placement index="3"
+                     position="0.0142988,6.39367,3.96617"
+                     look_at="0.0142988,5.54847,3.43172"
+                     up="-2.16018e-16,-0.534447,0.845202"
+                     lens_focal_length="65" />
+        </placements>
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>

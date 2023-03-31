@@ -1,0 +1,90 @@
+# Reinforce parameter
+# Defined in slide 11
+# Chosen as in slide 17
+XSI = 10
+# Forget parameter
+# Defined in slide 11
+# Chosen as in slide 17
+PHI = 1
+# Spontaneous switching
+# Defined in slide 15
+# Chosen as in slide 17
+P = 0.2
+# Number of tasks: if you change this, you must also change the corresponding
+# parameter in the .argos file, line 98!
+TASKS = 2
+
+#
+# Executed once at init time
+#
+function init() {
+  reset()
+}
+
+#
+# Executed for each step
+#
+function step() {
+  # Perform probabilistic switching explained in the slides
+  # Use the math.rng library
+  # See https://the.swarming.buzz/wiki/doku.php?id=buzz_manual#the_mathrng_library
+
+  # The stimulus is calculated by the ARGoS loop functions
+  # ARGoS "magically" inserts the variable 'stimulus' in the script of each robot
+  # It is defined as a table indexed by the number of the task, for example:
+  # stimulus = {
+  #   .0 = stimulus for task 0 (some float value),
+  #   .1 = stimulus for task 1 (some float value)
+  # }
+  # For details, check the file threshold_model.cpp
+  # Stimuli are initialized at lines 112-116
+  # Stimuli are updated at lines 150-153
+  # The magic that writes the stimuli into the scripts is at 75-96
+  # Feel free to read the code and play with it!
+  
+  # Placeholder code, just to have the robots do something - you'll need to change this!
+  # 'task' is expected to be an integer variable, make sure it is at all times!
+  # See lines 9-70 to check how the loop functions fetch it from the Buzz scripts
+  task = (task + 1) % TASKS
+  # The 'threshold' table is read by the ARGoS loop functions, so make sure not to use
+  # a different variable name
+  # See lines 9-70 to check how the loop functions fetch it from the Buzz scripts
+  threshold[0] = threshold[0] + 1.5
+  threshold[1] = threshold[1] + 2.5
+  # Some debug output just for fun
+  debug_output()
+}
+
+#
+# Executed once upon resetting
+#
+function reset() {
+  # Pick a default task
+  task = 0 # must be an integer between 0 and TASKS-1!
+  # Pick initial thresholds for the tasks
+  threshold = {}
+  threshold[0] = 500.0 # must be a float between 0.0 and 1000.0!
+  threshold[1] = 500.0 # must be a float between 0.0 and 1000.0!
+  # Debug output
+  debug_output()
+}
+
+#
+# Executed once upon closing ARGoS
+#
+function destroy() {
+  # Nothing to do
+}
+
+#
+# Helper function
+#
+function debug_output() {
+  # Examples of possible debug output
+  
+  # Debug message written on top of robot
+  # See: https://the.swarming.buzz/wiki/doku.php?id=buzz_argos
+  debug.print("t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
+  # Debug message written in the log
+  log("R", id, ": t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
+}
