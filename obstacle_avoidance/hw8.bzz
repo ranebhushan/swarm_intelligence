@@ -63,7 +63,9 @@ function coupled_oscillators_setup(){
 	c = math.rng.uniform(100)
 
 	# Define k
-	k = 0.5
+	k = 0.3
+
+	flashed = 0
 
 	# Initialize the neighbor listen function 
 	neighbors.listen("neighbor_state", function(vid, neighbor_state, rid) {
@@ -116,8 +118,12 @@ function init() {
 # This function is executed at each time step
 # The main loop is controller by ARGoS
 function step() {
+
+	# Uncomment the below line to run obstacle avoidance
 	obstacle_avoidance()
-	coupled_oscillators()
+
+	# Uncomment the below line to run coupled oscillators/synchronisation
+	# coupled_oscillators()
 }
 
 # This function is executed when you press the reset button
