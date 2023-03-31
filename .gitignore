@@ -8,12 +8,15 @@ the_schelling_model/P=0.6 t=4/*
 the_schelling_model/P=0.8 t=3/*
 the_schelling_model/P=0.8 t=4/*
 the_schelling_model/P=0.8 t=3,5/*
-
 coupled_oscillators/temp_data/*
 
 # Ignore Filename Extensions
 *.png
 *.gif
+*.bdb
+*.bo
+*.argos#
+*.zip
 
 # VSCode
 .vscode/*
