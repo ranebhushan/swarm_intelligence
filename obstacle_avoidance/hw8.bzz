@@ -65,6 +65,7 @@ function coupled_oscillators_setup(){
 	# Define k
 	k = 0.3
 
+	# Initilize the flash flag
 	flashed = 0
 
 	# Initialize the neighbor listen function 
