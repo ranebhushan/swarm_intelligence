@@ -14,6 +14,22 @@ P = 0.2
 # parameter in the .argos file, line 98!
 TASKS = 2
 
+# Delta t for discrete time model
+DT = 20
+
+function indicator_function(y){
+  if (y > 0) {
+    return 1
+  } 
+  else {
+    return 0
+  }
+}
+
+function fixed_threshold_model(stimulus, response_threshold){
+  return ((stimulus*stimulus)/(stimulus*stimulus + response_threshold*response_threshold))
+}
+
 #
 # Executed once at init time
 #
@@ -44,23 +60,70 @@ function step() {
   
   # Placeholder code, just to have the robots do something - you'll need to change this!
   # 'task' is expected to be an integer variable, make sure it is at all times!
-  # See lines 9-70 to check how the loop functions fetch it from the Buzz scripts
-  task = (task + 1) % TASKS
+  # See lines 9-70 to check how the loop functions f it etchfrom the Buzz scripts
+  # task = (task + 1) % TASKS
   # The 'threshold' table is read by the ARGoS loop functions, so make sure not to use
   # a different variable name
   # See lines 9-70 to check how the loop functions fetch it from the Buzz scripts
-  threshold[0] = threshold[0] + 1.5
-  threshold[1] = threshold[1] + 2.5
+  # threshold[0] = threshold[0] + 1.5
+  # threshold[1] = threshold[1] + 2.5
+
+  if (t == 0){
+    # Schedule the next task
+    T = {
+      .0 = stimulus[0]^2 / (stimulus[0]^2 + threshold[0]^2),
+      .1 = stimulus[1]^2 / (stimulus[1]^2 + threshold[1]^2)
+    }
+    idletime = 1 - (x[0] + x[1])
+    x = {
+      .0 = x[0] + DT * math.rng.uniform(2 * T[0]) * idletime - P*x[0],
+      .1 = x[1] + DT * math.rng.uniform(2 * T[1]) * idletime - P*x[1]
+    } 
+    xsum = x[0] + x[1]
+    x = {
+      .0 = x[0] / xsum,
+      .1 = x[1] / xsum
+    }
+    threshold[0] = threshold[0] + DT * ((PHI * (1.0 - x[0])) - (XSI * (x[0])))
+    threshold[0] = math.min(1000.0, math.max(1.0, threshold[0]))
+    threshold[1] = threshold[1] + DT * ((PHI * (1.0 - x[1])) - (XSI * (x[1])))
+    threshold[1] = math.min(1000.0, math.max(1.0, threshold[1]))
+    
+    task = math.rng.uniform(1)
+    other = (task + 1) % TASKS
+  }
+  if ((t > x[task] * DT) and (t < (x[0] + x[1])*DT)){
+    task = other
+    other = (task + 1 ) % TASKS
+  }
+  
   # Some debug output just for fun
   debug_output()
+  t = (t + 1) % DT
+  if (t >= DT){
+    t = 0
+  }
 }
 
 #
 # Executed once upon resetting
 #
 function reset() {
+
+  math.rng.setseed(id)
+
+  # Initialize time counter
+  t = 0
+
+  # Initialize time fractions
+  x = {
+    .0 = 0.0,
+    .1 = 0.0
+  }
+
   # Pick a default task
-  task = 0 # must be an integer between 0 and TASKS-1!
+  # must be an integer between 0 and TASKS-1!
+  task = math.rng.uniform(TASKS-1)
   # Pick initial thresholds for the tasks
   threshold = {}
   threshold[0] = 500.0 # must be a float between 0.0 and 1000.0!
@@ -85,6 +148,20 @@ function debug_output() {
   # Debug message written on top of robot
   # See: https://the.swarming.buzz/wiki/doku.php?id=buzz_argos
   debug.print("t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
+  
+  # debug.print("t=", task, 
+  #             "; th0=", threshold[0], 
+  #             "; th1=", threshold[1], 
+  #             "; x0=", x[0], 
+  #             "; x1=", x[1], 
+  #             "; T0=", T[0], 
+  #             "; T1=", T[1])
+  
   # Debug message written in the log
   log("R", id, ": t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
+  # if (id == 0){
+  #   log("s[0]=", stimulus[0], 
+  #       "; s[1]=", stimulus[1])
+  # }
 }
+
