@@ -69,43 +69,57 @@ function step() {
   # threshold[1] = threshold[1] + 2.5
 
   if(t == 0){
-    # Schedule the next task
+    # Indicator function
     T = {
       .0 = stimulus[0]^2 / (stimulus[0]^2 + threshold[0]^2),
       .1 = stimulus[1]^2 / (stimulus[1]^2 + threshold[1]^2)
     }
+
+    # Calculate the idle time
     idletime = 1.0 - (x[0] + x[1])
+
+    # Update the time fractions
     x = {
       .0 = x[0] + math.rng.uniform(2 * T[0]) * idletime - P * x[0],
       .1 = x[1] + math.rng.uniform(2 * T[1]) * idletime - P * x[1]
     }
+
+    # Comment the above lines and uncomment the following lines to have a random spontaneous switching probability
     # x = {
     #   .0 = x[0] + math.rng.uniform(2 * T[0]) * idletime - math.rng.uniform(P) * x[0],
     #   .1 = x[1] + math.rng.uniform(2 * T[1]) * idletime - math.rng.uniform(P) * x[1]
     # } 
+
     xsum = x[0] + x[1]
+
+    # Normalize the time fractions
     if (xsum > 1.0){
       x = {
         .0 = x[0] / xsum,
         .1 = x[1] / xsum
       }
     }
+
+    # Update the thresholds
     threshold[0] = threshold[0] + DT * ((PHI * (1 - x[0])) - (XSI * (x[0])))
     threshold[0] = math.min(1000.0, math.max(1.0, threshold[0]))
     threshold[1] = threshold[1] + DT * ((PHI * (1 - x[1])) - (XSI * (x[1])))
     threshold[1] = math.min(1000.0, math.max(1.0, threshold[1]))
     
+    # Uniformly pick a task
     task = math.rng.uniform(TASKS - 1)
     other = (task + 1) % TASKS
   }
+
+  # Update the time counter
   if((t > x[task] * DT) and (t < (x[0] + x[1])*DT)){
     task = other
     other = (task + 1 ) % TASKS
   }
+
   t = (t + 1) % DT
   # Some debug output just for fun
   debug_output()
-  
 }
 
 #
@@ -113,6 +127,7 @@ function step() {
 #
 function reset() {
 
+  # Set the random seed 
   math.rng.setseed(id)
 
   # Initialize time counter
@@ -127,10 +142,16 @@ function reset() {
   # Pick a default task
   # must be an integer between 0 and TASKS-1!
   task = math.rng.uniform(TASKS-1)
+
   # Pick initial thresholds for the tasks
   threshold = {}
   threshold[0] = 500.0 # must be a float between 0.0 and 1000.0!
   threshold[1] = 500.0 # must be a float between 0.0 and 1000.0!
+
+  # Comment and above lines and uncomment the following lines to have random initial thresholds
+  # threshold[0] = math.rng.uniform(1000.0) # must be a uniformly set between 0.0 and 1000.0!
+  # threshold[1] = math.rng.uniform(1000.0) # must be a float between 0.0 and 1000.0!
+  
   # Debug output
   debug_output()
 }
@@ -152,19 +173,7 @@ function debug_output() {
   # See: https://the.swarming.buzz/wiki/doku.php?id=buzz_argos
   debug.print("t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
   
-  # debug.print("t=", task, 
-  #             "; th0=", threshold[0], 
-  #             "; th1=", threshold[1], 
-  #             "; x0=", x[0], 
-  #             "; x1=", x[1], 
-  #             "; T0=", T[0], 
-  #             "; T1=", T[1])
-  
   # Debug message written in the log
   log("R", id, ": t=", task, "; th0=", threshold[0], "; th1=", threshold[1])
-  # if (id == 0){
-  #   log("s[0]=", stimulus[0], 
-  #       "; s[1]=", stimulus[1])
-  # }
 }
 
