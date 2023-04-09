@@ -68,41 +68,44 @@ function step() {
   # threshold[0] = threshold[0] + 1.5
   # threshold[1] = threshold[1] + 2.5
 
-  if (t == 0){
+  if(t == 0){
     # Schedule the next task
     T = {
       .0 = stimulus[0]^2 / (stimulus[0]^2 + threshold[0]^2),
       .1 = stimulus[1]^2 / (stimulus[1]^2 + threshold[1]^2)
     }
-    idletime = 1 - (x[0] + x[1])
+    idletime = 1.0 - (x[0] + x[1])
     x = {
-      .0 = x[0] + DT * math.rng.uniform(2 * T[0]) * idletime - P*x[0],
-      .1 = x[1] + DT * math.rng.uniform(2 * T[1]) * idletime - P*x[1]
-    } 
-    xsum = x[0] + x[1]
-    x = {
-      .0 = x[0] / xsum,
-      .1 = x[1] / xsum
+      .0 = x[0] + math.rng.uniform(2 * T[0]) * idletime - P * x[0],
+      .1 = x[1] + math.rng.uniform(2 * T[1]) * idletime - P * x[1]
     }
-    threshold[0] = threshold[0] + DT * ((PHI * (1.0 - x[0])) - (XSI * (x[0])))
+    # x = {
+    #   .0 = x[0] + math.rng.uniform(2 * T[0]) * idletime - math.rng.uniform(P) * x[0],
+    #   .1 = x[1] + math.rng.uniform(2 * T[1]) * idletime - math.rng.uniform(P) * x[1]
+    # } 
+    xsum = x[0] + x[1]
+    if (xsum > 1.0){
+      x = {
+        .0 = x[0] / xsum,
+        .1 = x[1] / xsum
+      }
+    }
+    threshold[0] = threshold[0] + DT * ((PHI * (1 - x[0])) - (XSI * (x[0])))
     threshold[0] = math.min(1000.0, math.max(1.0, threshold[0]))
-    threshold[1] = threshold[1] + DT * ((PHI * (1.0 - x[1])) - (XSI * (x[1])))
+    threshold[1] = threshold[1] + DT * ((PHI * (1 - x[1])) - (XSI * (x[1])))
     threshold[1] = math.min(1000.0, math.max(1.0, threshold[1]))
     
-    task = math.rng.uniform(1)
+    task = math.rng.uniform(TASKS - 1)
     other = (task + 1) % TASKS
   }
-  if ((t > x[task] * DT) and (t < (x[0] + x[1])*DT)){
+  if((t > x[task] * DT) and (t < (x[0] + x[1])*DT)){
     task = other
     other = (task + 1 ) % TASKS
   }
-  
+  t = (t + 1) % DT
   # Some debug output just for fun
   debug_output()
-  t = (t + 1) % DT
-  if (t >= DT){
-    t = 0
-  }
+  
 }
 
 #
