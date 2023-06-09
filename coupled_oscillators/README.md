@@ -42,7 +42,8 @@ Run the python script in this directory using : `python coupled_oscillators.py`
 
 k = 0.5
 
-
+![k=0 5](https://github.com/ranebhushan/swarm_workspace/assets/34753789/6c9b97b9-7188-45b2-bf07-6ac7ba6a6770)
 
 k = 0.7
 
+![kk=0 7](https://github.com/ranebhushan/swarm_workspace/assets/34753789/0081afab-15de-4649-a694-4509d7e56e17)
