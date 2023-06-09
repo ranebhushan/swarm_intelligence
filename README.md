@@ -11,7 +11,7 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 ## Course Assignments
 
 ### [Homework 3]()
-- [The Schelling Model]()
+- [The Schelling Model](schelling_model/)
 
 ### [Homework 6]()
 - [Coupled Oscillators]()
