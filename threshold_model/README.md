@@ -49,7 +49,13 @@ For the first experiment, thresholds and spontaneous switching probability are i
 
 For the second experiment, uniform probability distribution `math.rng.uniform()` is used to spontaneous switching probability `P` and observed the following graphs which vary a little bit from the above initial graphs. Here, it can be observed that the some of the robots that were initialized with thresholds less than 500, tend to converge towards task 0 with the threshold decreasing from initial value and then suddenly increasing towards 1000 in a simulation time of 1700 units. Also, none of the robots specialized in task 1 and the task 1 threshold reduced to 0 as the simulation ended.
 
+![uniformP_time_threshold0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/cfa766a0-bcac-4186-8772-c39132e49ea3)
 
+![uniformP_time_threshold1](https://github.com/ranebhushan/swarm_workspace/assets/34753789/2a2ca7f2-f20a-4248-bbd8-96024f739d38)
 
 
 For the third experiment, the task thresholds were initialized uniformly between 0 and 1000 using `math.rng.uniform()`. Some robots that were initialized with threshold greater than 700 for task 0, immediately tend to specialize in task 0, whereas the other robots initialized with threshold less than 300, has their threshold reduced to 0 immediately. Also, 2 of the robots specialized in task 0 initially with threshold increasing towards 1000 and dropping to 0 as the simulation ended in time of 1600 units. Also, 1 of the robots took a longer time to reach the highest threshold and specialize in that task. Similarly, some robots that were initialized with threshold greater than 900 for task 1, immediately tend to specialize in task 1, whereas the other robots initialized with threshold less than 200, has their threshold reduced to 0 immediately. Very few robots (5) specialized in task 1 with their threshold reaching highest value in stipulated simulation time.
+
+![uniformTH_time_threshold0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/21b7acfc-7fd6-43fc-b3e5-2af848bf9153)
+
+![uniformTH_time_threshold1](https://github.com/ranebhushan/swarm_workspace/assets/34753789/946c9ec9-e989-48c6-9de7-40adb8b3581b)
