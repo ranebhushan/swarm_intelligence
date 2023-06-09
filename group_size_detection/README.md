@@ -56,7 +56,6 @@ step:
     endif
 ```
 
-
 ### Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 - Python : [3.8.10](https://www.python.org/downloads/release/python-3810/)
@@ -67,3 +66,6 @@ step:
 ## Usage Guidelines
 
 Run the python script in this directory using : `python quorum_sensing.py`
+
+## Results
+
