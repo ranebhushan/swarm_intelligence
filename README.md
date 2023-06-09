@@ -1,4 +1,4 @@
-# RBE595 - Swarm Intelligence Coursework
+# RBE595 - Swarm Intelligence
 
 Repository for RBE595 - Swarm Intelligence Course Assignments (Spring 2023)
 
