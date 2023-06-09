@@ -43,10 +43,9 @@ The range-and-bearing communication system and the LEDs are used in this exercis
 
 ## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
-- Python : [3.8.10](https://www.python.org/downloads/release/python-3810/)
-- NumPy : [v1.22.3](https://numpy.org/)
-- Matplotlib : [3.6.3](https://matplotlib.org/stable/index.html)
-- Pillow : [9.4.0](https://pillow.readthedocs.io/en/stable/)
+- ArGos : [3.0.0-beta59](https://www.argos-sim.info/core.php)
+- [Buzz](https://github.com/NESTLab/Buzz.git)
+- [Khepera IV Robot](https://github.com/ilpincy/argos3-kheperaiv.git)
 
 ## Usage Guidelines
 
