@@ -14,10 +14,13 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 - [The Schelling Model](schelling_model/)
 
 ### [Homework 6]()
-- [Coupled Oscillators]()
+- [Coupled Oscillators](coupled_oscillators/)
 
 ### [Homework 7]()
-- [Group Size Detection]()
+- [Group Size Detection](group_size_detection/)
 
 ### [Homework 8]()
-- [Obstacle Avoidance]()
+- [Obstacle Avoidance](obstacle_avoidance/)
+
+### [Homework 9]()
+- [Threshold Model](threshold_model/)
