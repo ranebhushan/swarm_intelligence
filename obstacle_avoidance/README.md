@@ -16,7 +16,7 @@ the robot wheels.
 
 **Proximity Sensor Labeling**
 
-
+![Screenshot from 2023-06-09 16-19-27](https://github.com/ranebhushan/swarm_workspace/assets/34753789/44817d2b-dd10-4f53-8bac-9275cd467f81)
 
 ### Synchronization
 
@@ -56,7 +56,7 @@ Run the python script in this directory using : `python coupled_oscillators.py`
 
 ### Obstacle Avoidance
 
-
+https://github.com/ranebhushan/swarm_workspace/assets/34753789/f22d3c4e-be81-4c9f-bad5-3ad2a15ac520
 
 ### Synchronization
 
