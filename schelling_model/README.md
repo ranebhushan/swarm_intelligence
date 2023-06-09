@@ -33,3 +33,7 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 ![2023-01-30--20-19-55 P=0 8 t=3 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/d630129f-21c9-4878-9a25-b46758d139c2)
 
 ![2023-01-30--20-25-18 P=0 8 t=4 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/9458bc91-db3e-4b54-8224-519c976b20e5)
+
+## References
+- [Schelling's Segregation Model](http://www.natureincode.com/code/various/schelling.html)
+- [Schelling's Model of Segregation](http://nifty.stanford.edu/2014/mccown-schelling-model-segregation/)
