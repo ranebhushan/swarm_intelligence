@@ -5,7 +5,7 @@ import sys
 import time
 
 # Provide datafile path
-datafile_path = os.path.join(os.path.dirname(__file__), 'data_threshold.dat')
+datafile_path = os.path.join(os.path.dirname(__file__), 'data_normal.dat')
 print(datafile_path)
 
 # Read data from datafile
