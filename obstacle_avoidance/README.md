@@ -43,13 +43,21 @@ The range-and-bearing communication system and the LEDs are used in this exercis
 
 ## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
-- ArGos : [3.0.0-beta59](https://www.argos-sim.info/core.php)
+- ARGoS : [3.0.0-beta59](https://www.argos-sim.info/core.php)
 - [Buzz](https://github.com/NESTLab/Buzz.git)
 - [Khepera IV Robot](https://github.com/ilpincy/argos3-kheperaiv.git)
 
 ## Usage Guidelines
 
-Run the python script in this directory using : `python coupled_oscillators.py`
+1. Launch the ARGoS simulator using the terminal with the following command :
+
+    ```
+    argos3 −c hw8.argos
+    ```
+
+    The swarm of robots will be initialized in the arena with the obstacles. 
+
+2. Open Buzz script file `hw8.bzz` in ARGoS Script Editor and run the script using the `Execute` button.
 
 ## Results
 
