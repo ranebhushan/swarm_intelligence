@@ -41,7 +41,7 @@ In the above algorithm, `c` is an internal counter; `T` is the maximum value the
 
 The range-and-bearing communication system and the LEDs are used in this exercise.
 
-### Dependencies
+## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 - Python : [3.8.10](https://www.python.org/downloads/release/python-3810/)
 - NumPy : [v1.22.3](https://numpy.org/)

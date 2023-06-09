@@ -27,7 +27,7 @@ step:
 
 In the above algorithm, `c` is an internal counter; `T` is the maximum value the counter can assume; and `k` is a constant between 0 and 1. We assume that each agent can see the neighbors on its north, east, south and west while implementing this algorithm, with setting `T` to 100.
 
-### Dependencies
+## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 - Python : [3.8.10](https://www.python.org/downloads/release/python-3810/)
 - NumPy : [v1.22.3](https://numpy.org/)

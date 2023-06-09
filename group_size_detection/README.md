@@ -56,7 +56,7 @@ step:
     endif
 ```
 
-### Dependencies
+## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 - Python : [3.8.10](https://www.python.org/downloads/release/python-3810/)
 - NumPy : [v1.22.3](https://numpy.org/)
