@@ -9,6 +9,7 @@ from PIL import Image as PILImage
 import os
 import shutil
 import random
+import shutil
 
 # Initialize grid dimensions
 width = 10
@@ -47,16 +48,16 @@ refractory_timer = np.zeros((height,width))
 agent_done_steps = np.zeros((height,width))
 
 # Create temporary directory to save images to create a GIF
-# folder_name = "temp_data"
-# if os.path.exists(folder_name):
-#     shutil.rmtree(folder_name)
-#     os.mkdir(folder_name)
-# else:
-#     os.mkdir(folder_name)
+folder_name = "temp_data"
+if os.path.exists(folder_name):
+    shutil.rmtree(folder_name)
+    os.mkdir(folder_name)
+else:
+    os.mkdir(folder_name)
 
 # Variables to create a GIF 
-# image_count = 1
-# filenames = []
+image_count = 1
+filenames = []
 
 # Initialize flag to run simulation
 simulation_complete_flag = False
@@ -142,28 +143,31 @@ while simulation_complete_flag == False:
         break
     
     # Store sequential images in the loop for GIF  
-    # filename = f'temp_data/{image_count}.png'
-    # filenames.append(filename)
-    # image_count = image_count + 1
-    # plt.title(f"Group Size Detection")
-    # plt.xlabel("Columns")
-    # plt.ylabel("Rows")
-    # plt.imshow(signal)
-    # plt.savefig(filename,bbox_inches='tight')
-    # plt.close()
+    filename = f'{folder_name}/{image_count}.png'
+    filenames.append(filename)
+    image_count = image_count + 1
+    plt.title(f"Group Size Detection")
+    plt.xlabel("Columns")
+    plt.ylabel("Rows")
+    plt.imshow(signal)
+    plt.savefig(filename,bbox_inches='tight')
+    plt.close()
 
+print("-"*80)
 print(f'Counter = {bean_counter}, Max. Group Size = {np.amax(group_size)}, Sum Agent Done = {np.sum(agent_done)}')
 print("-"*80)
 
 # # Read and Open the saved images 
-# images = []
-# for n in filenames:
-#     frame = PILImage.open(n)
-#     images.append(frame)
+images = []
+for n in filenames:
+    frame = PILImage.open(n)
+    images.append(frame)
 
 # # Create GIF
-# images[0].save(f'signal.gif',
-#             save_all=True,
-#             append_images=images[1:],
-#             duration=10,
-#             loop=0)
+images[0].save(f'signaltest.gif',
+            save_all=True,
+            append_images=images[1:],
+            duration=20,
+            loop=0)
+
+shutil.rmtree(folder_name)
