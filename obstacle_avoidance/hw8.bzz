@@ -95,7 +95,7 @@ function coupled_oscillators(){
 	if (c >= 100){
 		state = 1
 		# Flash the LED
-		set_leds(255,0,0)
+		set_leds(255,255,255)
 		c = 0
 	}
 	else {
@@ -124,7 +124,7 @@ function step() {
 	obstacle_avoidance()
 
 	# Uncomment the below line to run coupled oscillators/synchronisation
-	# coupled_oscillators()
+	coupled_oscillators()
 }
 
 # This function is executed when you press the reset button
