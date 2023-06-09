@@ -24,4 +24,5 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 1. Navigate to the directory `src`.
 2. Run the given python file `python schelling_model.py`
 
-Output GIFs are stored in the `output` directory 
+## Results
+
