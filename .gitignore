@@ -19,6 +19,7 @@ threshold_model/build/*
 *.argos#
 *.zip
 *.pdf
+*.dat
 
 # VSCode
 .vscode/*
