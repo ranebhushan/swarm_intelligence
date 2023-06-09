@@ -1,4 +1,4 @@
-# Homework 6 - Obstacle Avoidance and Synchronization
+# Homework 8 - Obstacle Avoidance and Synchronization
 
 RBE595 - Swarm Intelligence (Spring 2023)
 
