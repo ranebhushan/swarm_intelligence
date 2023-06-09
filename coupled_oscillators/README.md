@@ -6,6 +6,8 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 
 This repository is based on the following paper : [Mirollo, R. E., & Strogatz, S. H. (1990). Synchronization of pulse-coupled biological oscillators. SIAM Journal on Applied Mathematics, 50(6), 1645-1662](https://epubs.siam.org/doi/10.1137/0150098)
 
+## Description
+
 This repository contains simplified implementation of algorithm to achieve global synchronization, which can be summarized as :
 
 ```
@@ -35,3 +37,12 @@ In the above algorithm, `c` is an internal counter; `T` is the maximum value the
 ## Usage Guidelines
 
 Run the python script in this directory using : `python coupled_oscillators.py`
+
+## Results
+
+k = 0.5
+
+
+
+k = 0.7
+
