@@ -22,7 +22,7 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 
 ## Usage Guidelines
 1. Navigate to the directory `src`.
-2. Run the given python file `python schelling_model.py`
+2. Run the given python file `python schelling_model.py` or `python3 schelling_model.py`.
 
 ## Results
 
