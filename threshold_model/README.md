@@ -43,8 +43,9 @@ In this exercise, the threshold model of Theraulaz *et al.* is implemented. The 
 
 For the first experiment, thresholds and spontaneous switching probability are initialized to fixed value of 500 and 0.2 respectively. Some robots specialize towards task 0 while the remaining robots tend to converge towards task 1. The robots tend to converge within simulation time of 1500 units. However, there is an exception as seen in Time vs Threshold1 graph where one of the robots does not specialize even in 1500 units. This is because the robot is not able to find any active robot in its neighborhood and hence it does not switch its state from inactive to active. The robot is stuck in inactive state and hence it does not specialize towards any task.
 
+![normal_time_threshold0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/cf44056d-1e8d-4e25-82d1-8a114f1b957d)
 
-
+![normal_time_threshold1](https://github.com/ranebhushan/swarm_workspace/assets/34753789/844de3ad-77a6-4df5-aaf4-ba8aa86220f4)
 
 For the second experiment, uniform probability distribution `math.rng.uniform()` is used to spontaneous switching probability `P` and observed the following graphs which vary a little bit from the above initial graphs. Here, it can be observed that the some of the robots that were initialized with thresholds less than 500, tend to converge towards task 0 with the threshold decreasing from initial value and then suddenly increasing towards 1000 in a simulation time of 1700 units. Also, none of the robots specialized in task 1 and the task 1 threshold reduced to 0 as the simulation ended.
 
