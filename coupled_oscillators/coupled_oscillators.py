@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from PIL import Image as PILImage
 import os
 import shutil
+import datetime
 
 # Initialize the agent states to 0 
 agent_state = np.zeros((10,10))
@@ -21,14 +22,14 @@ c_grid = np.random.randint(low=0, high=T, size=(agent_state.shape[0], agent_stat
 # print("C Grid =", c_grid)
 
 # Initialize the value of k
-k = 0.5
+k = 0.9
 
 # Direction Vectors to explorte neighbours of any agent
 dR = [-1, +1, 0, 0]
 dC = [0, 0, +1, -1]
 
 # Create temporary directory to save images to create a GIF
-folder_name = "temp_data"
+folder_name = f'temp_data-{datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}'
 if os.path.exists(folder_name):
     shutil.rmtree(folder_name)
     os.mkdir(folder_name)
@@ -74,7 +75,7 @@ while (bean_counter <= 1500):
                 agent_state[row,column] = 0
 
     # Store sequential images in the loop for GIF  
-    filename = f'temp_data/{image_count}.png'
+    filename = f'{folder_name}/{image_count}.png'
     filenames.append(filename)
     image_count = image_count + 1
     plt.title(f"Global Synchronization with k = {k}")
@@ -99,3 +100,5 @@ images[0].save(f'k={k}.gif',
             append_images=images[1:],
             duration=10,
             loop=0)
+
+shutil.rmtree(folder_name)
