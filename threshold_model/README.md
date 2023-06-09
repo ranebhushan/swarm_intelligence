@@ -10,8 +10,8 @@ In this exercise, the threshold model of Theraulaz *et al.* is implemented. The 
 
 ## Dependencies
 - OS : [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
-- ARGoS : [3.0.0-beta59](https://www.argos-sim.info/core.php)
-- [Buzz](https://github.com/NESTLab/Buzz.git)
+- ARGoS Simulator : [3.0.0-beta59](https://www.argos-sim.info/core.php)
+- Programming Language : [Buzz](https://github.com/NESTLab/Buzz.git)
 - [Buzz Wiki](https://the.swarming.buzz/wiki/doku.php?id=start)
 - [Buzz Cheatsheet](https://the.swarming.buzz/wiki/doku.php?id=buzz_syntax_cheatsheet)
 - [ARGoS-Buzz Integration](https://the.swarming.buzz/wiki/doku.php?id=buzz_argos)
