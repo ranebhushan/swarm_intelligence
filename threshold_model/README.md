@@ -1,9 +1,8 @@
 # Homework 9 - Threshold Model
 
-RBE595 - Swarm Intelligence (Spring 2023)
+[RBE595 - Swarm Intelligence](https://www.wpi.edu/sites/default/files/inline-image/Departments-Programs/Robotics-Engineering/RBE.Special.%20Topics.%20Courses_%20Spring.2023.pdf) (Spring 2023)
 
-Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](https://www.wpi.edu/)
-
+[Master of Science](https://www.wpi.edu/academics/study/robotics-engineering-ms) in [Robotics Engineering](https://www.wpi.edu/academics/departments/robotics-engineering) at [Worcester Polytechnic Institute](https://www.wpi.edu/)
 ## Description
 
 In this exercise, the threshold model of Theraulaz *et al.* is implemented. The model is based on the assumption that the probability of a robot switching its state from inactive to active is proportional to the number of active robots in its neighborhood. The model is implemented in ARGoS simulator using Buzz language.

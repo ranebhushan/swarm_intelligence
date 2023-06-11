@@ -1,9 +1,8 @@
 # Homework 3 - The Schelling Model
 
-RBE595 - Swarm Intelligence (Spring 2023)
+[RBE595 - Swarm Intelligence](https://www.wpi.edu/sites/default/files/inline-image/Departments-Programs/Robotics-Engineering/RBE.Special.%20Topics.%20Courses_%20Spring.2023.pdf) (Spring 2023)
 
-Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](https://www.wpi.edu/)
-
+[Master of Science](https://www.wpi.edu/academics/study/robotics-engineering-ms) in [Robotics Engineering](https://www.wpi.edu/academics/departments/robotics-engineering) at [Worcester Polytechnic Institute](https://www.wpi.edu/)
 ## Description
 - The world is a 50 × 50 grid, for a total of `G` = 2500 cells.
 - The population `P` is expressed as a fraction of the cells. `P` = {0.6, 0.8}.

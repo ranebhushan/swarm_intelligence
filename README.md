@@ -1,8 +1,8 @@
 # RBE595 - Swarm Intelligence
 
-Repository for RBE595 - Swarm Intelligence Course Assignments (Spring 2023)
+Repository for [RBE595 - Swarm Intelligence](https://www.wpi.edu/sites/default/files/inline-image/Departments-Programs/Robotics-Engineering/RBE.Special.%20Topics.%20Courses_%20Spring.2023.pdf) Course Assignments (Spring 2023)
 
-Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](https://www.wpi.edu/)
+[Master of Science](https://www.wpi.edu/academics/study/robotics-engineering-ms) in [Robotics Engineering](https://www.wpi.edu/academics/departments/robotics-engineering) at [Worcester Polytechnic Institute](https://www.wpi.edu/)
 
 ## Description
 

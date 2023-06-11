@@ -1,9 +1,8 @@
 # Homework 7 - Group Size Detection
 
-RBE595 - Swarm Intelligence (Spring 2023)
+[RBE595 - Swarm Intelligence](https://www.wpi.edu/sites/default/files/inline-image/Departments-Programs/Robotics-Engineering/RBE.Special.%20Topics.%20Courses_%20Spring.2023.pdf) (Spring 2023)
 
-Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](https://www.wpi.edu/)
-
+[Master of Science](https://www.wpi.edu/academics/study/robotics-engineering-ms) in [Robotics Engineering](https://www.wpi.edu/academics/departments/robotics-engineering) at [Worcester Polytechnic Institute](https://www.wpi.edu/)
 ## Description
 
 This repository contains an implementation of a simple algorithm for calculating a _very rough estimate_ of the size of a group of agents in a completely decentralized manner. This algorithm is called **[quorum sensing](https://en.wikipedia.org/wiki/Quorum_sensing)** and it is used by certain bacteria to know when to launch an attack on the body of the host.
