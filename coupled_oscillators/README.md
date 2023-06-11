@@ -40,4 +40,4 @@ Run the python script in this directory using : `python coupled_oscillators.py`
 
 ## Results
 
-![k=0 5](https://github.com/ranebhushan/swarm_workspace/assets/34753789/6c9b97b9-7188-45b2-bf07-6ac7ba6a6770)
+![k=0 5](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/66778fd3-88f9-45d2-b8a7-394e960ff6d6)
