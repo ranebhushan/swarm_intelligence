@@ -26,13 +26,13 @@ Master of Science in Robotics Engineering at [Worcester Polytechnic Institute](h
 
 ## Results
 
-![2023-01-30--20-12-30 P=0 6 t=3 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/d6a9642c-a7cd-4700-b249-58dc63fa2c7b)
+![2023-01-30--20-12-30 P=0 6 t=3 0](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/258b1e3f-71ae-4f80-8420-aa7bbcec040c)
 
-![2023-01-30--20-15-27 P=0 6 t=4 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/da76adb2-ac44-466d-ac24-6e603f6cbf95)
+![2023-01-30--20-15-27 P=0 6 t=4 0](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/5efc4672-5385-4204-8c9c-18778eb6d48a)
 
-![2023-01-30--20-19-55 P=0 8 t=3 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/d630129f-21c9-4878-9a25-b46758d139c2)
+![2023-01-30--20-19-55 P=0 8 t=3 0](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/ecfaa506-405e-4f7e-b0eb-12289dc4a3fc)
 
-![2023-01-30--20-25-18 P=0 8 t=4 0](https://github.com/ranebhushan/swarm_workspace/assets/34753789/9458bc91-db3e-4b54-8224-519c976b20e5)
+![2023-01-30--20-25-18 P=0 8 t=4 0](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/dd9ec370-c151-4579-a615-7cbf4b2cb252)
 
 ## References
 - [Schelling's Segregation Model](http://www.natureincode.com/code/various/schelling.html)
