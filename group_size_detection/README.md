@@ -69,4 +69,4 @@ Run the python script in this directory using : `python quorum_sensing.py`
 
 ## Results
 
-![signal](https://github.com/ranebhushan/swarm_workspace/assets/34753789/92eca5e3-9ff3-4c13-a6dd-af3dc666ec42)
+![signal](https://github.com/ranebhushan/swarm_intelligence/assets/34753789/19d54946-2d89-4381-8b0a-dad72fba80dd)
